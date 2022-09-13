@@ -1,0 +1,39 @@
+# sudo: auth account password session
+auth     optional     /opt/homebrew/lib/pam/pam_reattach.so
+auth     sufficient   pam_tid.so
+#auth       sufficient     pam_smartcard.so
+#auth       required       pam_opendirectory.so
+#account    required       pam_permit.so
+#password   required       pam_deny.so
+#session    required       pam_permit.so
+
+# -----------------------------------------------------------------------------
+# ENABLE TOUCHID FOR SUDO IN ITERM ON MACOS
+#
+# In macOS on a M1 MacBook, install pam-reattach using Homebrew:
+#
+#   brew install pam-reattach
+#
+# Open a terminal as your backup if something goes wrong and go into sudo:
+#
+#   sudo su -
+#
+# Open a second terminal, make the /etc/pam.d/sudo file writable, and edit it:
+#
+#   sudo su -
+#   chmod u+w /etc/pam.d/sudo
+#   nano /etc/pam.d/sudo
+#
+# Add the uncommented lines above at the top of the file, save and exit,
+# and make the file read-only again:
+#
+#   chmod u-w /etc/pam.d/sudo
+#
+# Open a third terminal and test with sudo:
+#
+#   sudo su -
+#
+# If something fails, use the first terminal to revert the changes.
+#
+# If all works, close all terminals.
+#
