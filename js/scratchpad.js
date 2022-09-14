@@ -1,10 +1,26 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
 
-const main = async () => {
-	// Put code here
+const assert = {
+	equal(a, b) {
+		if (a !== b) throw new Error(`Assertion failed: ${a} === ${b}`)
+	},
+}
+
+const sub = () => {
+	// Put code here:
 	const msg = 'Hello'
 	return msg
+}
+
+const test = async () => {
+	// Update tests with changes to your code:
+	assert.equal(sub(), 'Hello')
+}
+
+const main = async () => {
+	await test()
+	return sub()
 }
 
 main()
