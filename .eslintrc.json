@@ -28,6 +28,7 @@
       "error",
       "always"
     ],
+		"import/prefer-default-export": "off",
     "no-tabs": [
       "error",
       {
