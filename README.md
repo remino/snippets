@@ -1,4 +1,4 @@
 snippets
 ========
 
-**Collection of snippets and templates for various languages**
+**Collection of notes, snippets, and templates in various languages**
