@@ -35,6 +35,7 @@
 				"allowIndentationTabs": true
 			}
 		],
+		"no-unused-vars": "off",
 		"no-underscore-dangle": 1,
 		"nuxt/no-cjs-in-config": "off"
 	}
