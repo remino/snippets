@@ -1,22 +1,36 @@
 #!/bin/sh
 
+_to_lowercase_words() {
+	echo "$*" | perl -pe 's/^./lc($&)/e;s/(?<![A-Z])([A-Z])/ \1/g;s/[^a-zA-Z0-9]+/ /g;s/(^[^a-zA-Z0-9]|[^a-zA-Z0-9]$)//g;s/.*/lc($&)/e'
+}
+
 _to_camel_case() {
-	echo "$*" | perl -pe 's/[_\s-]./uc($&)/ge;s/^./lc($&)/e;s/[_\s-](?=.)//g'
+	_to_lowercase_words "$*" | perl -pe 's/ [a-z]/uc($&)/ge;s/ ([A-Z])/\1/g'
 }
 
 _to_pascal_case() {
-	echo "$*" | perl -pe 's/(^|[_\s-])./uc($&)/ge;s/[_\s-](?=.)//g'
+	_to_lowercase_words "$*" | perl -pe 's/(^| )[a-z]/uc($&)/ge;s/ ([A-Z])/\1/g'
 }
 
 _to_kebab_case() {
-	echo "$*" | perl -pe 's/(^|[_\s-])./lc($&)/ge;s/[_\s-](?=.)/-/g'
+	_to_lowercase_words "$*" | sed -E 's/ /-/g'
 }
 
 _to_snake_case() {
-	echo "$*" | perl -pe 's/(^|[_\s-])./lc($&)/ge;s/[_\s-](?=.)/_/g'
+	_to_lowercase_words "$*" | sed -E 's/ /_/g'
 }
 
-_to_camel_case "this is camelCase"
-_to_pascal_case "this is PascalCase"
-_to_kebab_case "this is kebab-case"
-_to_snake_case "this is snake_case"
+_test() {
+	if [ "$1" = "$2" ]; then
+		echo "OK: $1"
+	else
+		echo "FAIL: $1 != $2"
+	fi
+}
+
+ORIGINAL=" stringWith  various-separators in_IT! "
+_test "$( _to_lowercase_words "$ORIGINAL" )" "string with various separators in it"
+_test "$( _to_camel_case "$ORIGINAL" )" "stringWithVariousSeparatorsInIt"
+_test "$( _to_pascal_case "$ORIGINAL" )" "StringWithVariousSeparatorsInIt"
+_test "$( _to_kebab_case "$ORIGINAL" )" "string-with-various-separators-in-it"
+_test "$( _to_snake_case "$ORIGINAL" )" "string_with_various_separators_in_it"
