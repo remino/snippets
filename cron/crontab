@@ -1,0 +1,12 @@
+# vim: ft=cron
+
+#  field         allowed values
+#  -----         --------------
+#  minute        0-59
+#  hour          0-23
+#  day of month  1-31
+#  month         1-12 (or names, see below)
+#  day of week   0-7 (0 or 7 is Sun, or use names)
+
+# min hour monthday month weekday command
+0 0 1 1 1 echo Midnight on the first day of January falling on a Monday
