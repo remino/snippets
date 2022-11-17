@@ -8,6 +8,10 @@
 	"extends": [
 		"airbnb-base"
 	],
+	"parserOptions": {
+		"ecmaVersion": 2021,
+		"sourceType": "module"
+	},
 	"rules": {
 		"indent": [
 			"error",
@@ -36,7 +40,15 @@
 			}
 		],
 		"no-unused-vars": "off",
-		"no-underscore-dangle": 1,
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__dirname",
+          "__filename"
+        ]
+      }
+    ],
 		"nuxt/no-cjs-in-config": "off"
 	}
 }
