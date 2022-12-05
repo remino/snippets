@@ -40,15 +40,30 @@
 			}
 		],
 		"no-unused-vars": "off",
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allow": [
-          "__dirname",
-          "__filename"
-        ]
-      }
-    ],
+		"no-underscore-dangle": [
+			"error",
+			{
+				"allow": [
+					"__dirname",
+					"__filename"
+				]
+			}
+		],
 		"nuxt/no-cjs-in-config": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": [
+				"jxa/**/*.js"
+			],
+			"globals": {
+				"$": true,
+				"Application": true,
+				"ObjC": true
+			},
+			"rules": {
+				"no-console": "off"
+			}
+		}
+	]
 }
