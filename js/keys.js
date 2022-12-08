@@ -1,5 +1,5 @@
 import { disableEvent } from './event.js'
-import { isFormField } from './form.js'
+import { isInputField } from './form.js'
 import { isMac } from './platform.js'
 
 /**
@@ -33,9 +33,13 @@ const keyPress = event => {
 	} = getKeys(event)
 
 	if (
-		!isFormField(target)
-			&& !optKey && !shiftKey && !metaKey && ctrlKey && (altKey || cmdKey)
-			&& key === 's'
+		!isInputField(target)
+		&& !optKey
+		&& !shiftKey
+		&& !metaKey
+		&& ctrlKey
+		&& (altKey || cmdKey)
+		&& key === 's'
 	) {
 		disableEvent(event)
 	}
