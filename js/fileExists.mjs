@@ -2,6 +2,9 @@
 
 import { access } from 'fs/promises'
 import { fileURLToPath } from 'url'
+import { forEachAsync } from './forEachAsync.js'
+
+// -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8<
 
 /**
  * Return whether or not a file or directory exists.
@@ -19,19 +22,11 @@ const fileExists = async path => {
 	}
 }
 
-// -----------------
+// -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8< -- 8<
 
 const __filename = fileURLToPath(import.meta.url)
 
-const forEachAsync = async (array, func) => {
-	for (let index = 0; index < array.length; index += 1) {
-		const element = array[index]
-		// eslint-disable-next-line no-await-in-loop
-		await func(element, index, array)
-	}
-}
-
 forEachAsync([__filename, 'doesntexist'], async path => {
 	// eslint-disable-next-line no-console
-	console.info(`${path} ${await fileExists(path)}`)
+	console.info(`File ${path} exists? ${await fileExists(path) ? 'yes' : 'no'}`)
 })
