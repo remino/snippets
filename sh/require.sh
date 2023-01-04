@@ -1,6 +1,6 @@
 #!/bin/sh
 
-e_missing_app=17
+E_MISSING_APP=17
 
 _require() {
 	missing_bin=0
@@ -16,6 +16,6 @@ _require() {
 
 	if [ $missing_bin -ne 0 ]
 	then
-		_fatal "$e_missing_app" "One or more executables or apps are missing."
+		_fatal "$E_MISSING_APP" "One or more executables or apps are missing."
 	fi
 }
