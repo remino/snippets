@@ -1,0 +1,46 @@
+// https://sass-lang.com/documentation/at-rules/control/each
+
+// Each value in array
+
+$sizes: 40px, 50px, 80px
+
+@each $size in $sizes
+	.icon-#{$size}
+		font-size: $size
+		height: $size
+		width: $size
+
+// Each with index
+
+@for $i from 1 through length($sizes)
+	$size: nth($sizes, $i)
+	// ...
+
+// Each name and value in map
+
+$icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f")
+
+@each $name, $glyph in $icons
+	.icon-#{$name}:before
+		display: inline-block
+		font-family: "Icon Font"
+		content: $glyph
+
+// Destructuring for each
+
+$icons: "eye" "\f112" 12px, "start" "\f12e" 16px, "stop" "\f12f" 10px
+
+@each $name, $glyph, $size in $icons
+	.icon-#{$name}:before
+		display: inline-block
+		font-family: "Icon Font"
+		content: $glyph
+		font-size: $size
+
+// https://sass-lang.com/documentation/at-rules/control/for
+
+$base-color: #036
+
+@for $i from 1 through 3
+	ul:nth-child(3n + #{$i})
+		background-color: lighten($base-color, $i * 5%)
