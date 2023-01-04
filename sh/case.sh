@@ -1,5 +1,9 @@
 #!/bin/sh
 
+_to_lowercase() {
+	echo "$*" | tr '[:upper:]' '[:lower:]'
+}
+
 _to_lowercase_words() {
 	echo "$*" | perl -pe 's/^./lc($&)/e;s/(?<![A-Z])([A-Z])/ \1/g;s/[^a-zA-Z0-9]+/ /g;s/(^[^a-zA-Z0-9]|[^a-zA-Z0-9]$)//g;s/.*/lc($&)/e'
 }
@@ -20,6 +24,10 @@ _to_snake_case() {
 	_to_lowercase_words "$*" | sed -E 's/ /_/g'
 }
 
+_to_uppercase() {
+	echo "$*" | tr '[:lower:]' '[:upper:]'
+}
+
 _test() {
 	if [ "$1" = "$2" ]; then
 		echo "OK: $1"
@@ -34,3 +42,5 @@ _test "$( _to_camel_case "$ORIGINAL" )" "stringWithVariousSeparatorsInIt"
 _test "$( _to_pascal_case "$ORIGINAL" )" "StringWithVariousSeparatorsInIt"
 _test "$( _to_kebab_case "$ORIGINAL" )" "string-with-various-separators-in-it"
 _test "$( _to_snake_case "$ORIGINAL" )" "string_with_various_separators_in_it"
+_test "$( _to_lowercase "$ORIGINAL" )" " stringwith  various-separators in_it! "
+_test "$( _to_uppercase "$ORIGINAL" )" " STRINGWITH  VARIOUS-SEPARATORS IN_IT! "

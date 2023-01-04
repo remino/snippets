@@ -8,14 +8,17 @@ html {
 body {
 	align-items: center;
 	display: flex;
-	flex-flow: column;
-	height: 100%;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: auto;
 	justify-content: center;
 	min-height: 100%;
+	min-width: 100%;
+	width: auto;
 }
 
 html {
-	min-height: 100%;
+	height: 100%;
 }
 
 main {

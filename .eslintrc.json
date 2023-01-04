@@ -5,9 +5,7 @@
 		"jasmine": true,
 		"node": true
 	},
-	"extends": [
-		"airbnb-base"
-	],
+	"extends": ["airbnb-base"],
 	"parserOptions": {
 		"ecmaVersion": 2021,
 		"sourceType": "module"
@@ -20,18 +18,9 @@
 				"SwitchCase": 1
 			}
 		],
-		"semi": [
-			"error",
-			"never"
-		],
-		"arrow-parens": [
-			"error",
-			"as-needed"
-		],
-		"import/extensions": [
-			"error",
-			"always"
-		],
+		"semi": ["error", "never"],
+		"arrow-parens": ["error", "as-needed"],
+		"import/extensions": ["error", "always"],
 		"import/prefer-default-export": "off",
 		"no-tabs": [
 			"error",
