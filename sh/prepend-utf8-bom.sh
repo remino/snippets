@@ -9,3 +9,7 @@ cat source_file.txt >> utf8.txt
 # Verify file
 # (Although `file` will output UTF-8 even without BOM.)
 file --mime-type --mime-encoding utf8.txt
+
+# Verify file for BOM
+xxd -p -l 3 utf8.csv
+# Should output 'efbbbf'.
