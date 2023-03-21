@@ -5,15 +5,19 @@ const isoUtcDate = () => {
 	return date.toISOString()
 }
 
-const isoLocalDate = () => {
-	const date = new Date()
-	const offset = date.getTimezoneOffset()
-	const offsetHours = Math.floor(Math.abs(offset) / 60)
-	const offsetMinutes = Math.abs(offset) % 60
-	const sign = offset < 0 ? '+' : '-'
-	const isoDate = date.toISOString().slice(0, 10)
-	const isoTime = date.toISOString().slice(11, 19)
-	return `${isoDate}T${isoTime}${sign}${offsetHours}:${offsetMinutes}`
+const localIsoDate = (date = new Date()) => {
+	const offset = -date.getTimezoneOffset()
+	const sign = offset >= 0 ? '+' : '-'
+	const pad = num => (num < 10 ? '0' : '') + num
+
+	return `${date.getFullYear()
+	}-${pad(date.getMonth() + 1)
+	}-${pad(date.getDate())
+	}T${pad(date.getHours())
+	}:${pad(date.getMinutes())
+	}:${pad(date.getSeconds())
+	}${sign}${pad(Math.floor(Math.abs(offset) / 60))
+	}:${pad(Math.abs(offset) % 60)}`
 }
 
 const utcDate = () => {
@@ -22,7 +26,7 @@ const utcDate = () => {
 }
 
 module.exports = {
-	isoLocalDate,
 	isoUtcDate,
+	localIsoDate,
 	utcDate,
 }
