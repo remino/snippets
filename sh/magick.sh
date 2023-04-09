@@ -17,3 +17,6 @@ magick convert -background none -flatten input.png output.png
 
 # Apply watermark image:
 magick convert input.png \( watermark.png -resize 1000 -alpha set -channel A -evaluate set 50% \) -gravity SouthWest -composite output.png
+
+# Convert SVG to PNG:
+magick convert -background none -density 300 -resize 1000 input.svg output.png
