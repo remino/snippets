@@ -20,3 +20,15 @@ magick convert input.png \( watermark.png -resize 1000 -alpha set -channel A -ev
 
 # Convert SVG to PNG:
 magick convert -background none -density 300 -resize 1000 input.svg output.png
+
+# Generate a 1x1 PNG file of a certain colour:
+magick convert -size 1x1 xc:\#2B6499 blue.png
+
+# Generate a 1x1 transparent GIF file:
+magick convert -size 1x1 xc:none transparent.gif
+
+# Generate a 1x1 transparent GIF file to stdout:
+magick convert -size 1x1 xc:none gif:- > transparent.gif
+
+# Generate the smallest possible transparent GIF file:
+magick convert -size 1x1 xc:none -depth 1 gif:- > transparent.gif
