@@ -15,7 +15,7 @@ sed -E 's/^[0-9]+//;s/\|.*$//;s/ //g' << EOF | xxd -r -p > transparent.gif
 EOF
 
 # Test with:
-hexdump C < transparent.gif
+hexdump -C < transparent.gif
 
 # In base64:
 echo R0lGODlhAQABAIABAAAAAP///yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== | base64 -d > transparent.gif
