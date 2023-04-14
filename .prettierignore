@@ -1,3 +1,4 @@
 html/*
 *.js
 *.mjs
+!html/html5-page.html

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+		<title>Hello World</title>
+
+		<style>
+			:root {
+				--background-color: #fff;
+				--color: #000;
+				--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+				--line-height: 1.6;
+			}
+			
+			body, html, main {
+				width: 100%;
+			}
+
+			body, html {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				background-color: var(--background-color);
+				color: var(--color);
+			}
+			
+			html {
+				font-family: var(--font-family);
+				font-size: 16px;
+				line-height: var(--line-height);
+			}
+
+			main {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				min-height: 100%;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--background-color: #000;
+					--color: #fff;
+				}
+			}
+			
+			@media print {
+				a {
+					color: inherit;
+					text-decoration: none;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<h1>Hello World</h1>
+		</main>
+		
+		<script>
+			(function page() {
+				'use strict'
+
+				const goFullscreen = ({ currentTarget: el }) => {
+					if (el.requestFullscreen) {
+						el.requestFullscreen()
+					} else if (el.mozRequestFullScreen) {
+						el.mozRequestFullScreen()
+					} else if (el.webkitRequestFullscreen) {
+						el.webkitRequestFullscreen()
+					} else if (el.msRequestFullscreen) {
+						el.msRequestFullscreen()
+					}
+				}
+				
+				const main = () => {
+					document.body.addEventListener('click', goFullscreen)
+				}
+				
+				if (document.readyState === 'interactive') {
+					main()
+				} else {
+					document.addEventListener('DOMContentLoaded', main)
+				}
+			}())
+		</script>
+	</body>
+</html>
