@@ -9,26 +9,30 @@
 			:root {
 				--background-color: #fff;
 				--color: #000;
-				--font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+				--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+					Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 				--line-height: 1.6;
 			}
-			
-			body, html, main {
+
+			body,
+			html,
+			main {
 				width: 100%;
 			}
 
-			body, html {
+			body,
+			html {
 				margin: 0;
 				padding: 0;
 				width: 100%;
 				height: 100%;
 			}
-			
+
 			body {
 				background-color: var(--background-color);
 				color: var(--color);
 			}
-			
+
 			html {
 				font-family: var(--font-family);
 				font-size: 16px;
@@ -48,7 +52,7 @@
 					--color: #fff;
 				}
 			}
-			
+
 			@media print {
 				a {
 					color: inherit;
@@ -62,33 +66,40 @@
 		<main>
 			<h1>Hello World</h1>
 		</main>
-		
+
 		<script>
-			(function page() {
+			;(function page() {
 				'use strict'
 
-				const goFullscreen = ({ currentTarget: el }) => {
-					if (el.requestFullscreen) {
-						el.requestFullscreen()
-					} else if (el.mozRequestFullScreen) {
-						el.mozRequestFullScreen()
-					} else if (el.webkitRequestFullscreen) {
-						el.webkitRequestFullscreen()
-					} else if (el.msRequestFullscreen) {
-						el.msRequestFullscreen()
+				const goFullscreen = () => {
+					const { currentTarget, target } = event
+
+					if (currentTarget !== target) return
+
+					const { body } = document
+
+					if (body.requestFullscreen) {
+						body.requestFullscreen()
+					} else if (body.mozRequestFullScreen) {
+						body.mozRequestFullScreen()
+					} else if (body.webkitRequestFullscreen) {
+						body.webkitRequestFullscreen()
+					} else if (body.msRequestFullscreen) {
+						body.msRequestFullscreen()
 					}
 				}
-				
+
 				const main = () => {
-					document.body.addEventListener('click', goFullscreen)
+					document.getElementsByTagName('main')[0]
+						.addEventListener('click', goFullscreen)
 				}
-				
+
 				if (document.readyState === 'interactive') {
 					main()
 				} else {
 					document.addEventListener('DOMContentLoaded', main)
 				}
-			}())
+			})()
 		</script>
 	</body>
 </html>
