@@ -15,35 +15,39 @@
 			}
 
 			body,
-			html,
-			main {
+			html {
 				width: 100%;
 			}
 
 			body,
 			html {
 				margin: 0;
-				padding: 0;
 				width: 100%;
-				height: 100%;
 			}
 
 			body {
+				align-items: center;
 				background-color: var(--background-color);
+				box-sizing: border-box;
 				color: var(--color);
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: center;
+				min-height: 100%;
+				padding: 2rem;
 			}
 
 			html {
 				font-family: var(--font-family);
 				font-size: 16px;
+				height: 100%;
 				line-height: var(--line-height);
+				padding: 0;
 			}
 
 			main {
-				align-items: center;
-				display: flex;
-				justify-content: center;
-				min-height: 100%;
+				max-width: 50rem;
+				width: 100%;
 			}
 
 			@media (prefers-color-scheme: dark) {
@@ -65,6 +69,12 @@
 	<body>
 		<main>
 			<h1>Hello World</h1>
+
+			<p>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam qui corrupti quo impedit
+				libero. Ipsum voluptatum enim ex! Odit ad a, optio reprehenderit laborum officia eius
+				voluptates sed iusto blanditiis!
+			</p>
 		</main>
 
 		<script>
@@ -84,14 +94,14 @@
 				}
 
 				const fullscreenBody = event => {
-					const { currentTarget, target } = event
-					if (currentTarget !== target) return
-					fullscreen(document.body)
+					const { currentTarget } = event
+					event.preventDefault()
+					event.stopPropagation()
+					fullscreen(currentTarget)
 				}
 
 				const main = () => {
-					document.getElementsByTagName('main')[0]
-						.addEventListener('click', fullscreenBody)
+					document.body.addEventListener('click', fullscreenBody)
 				}
 
 				if (document.readyState === 'interactive') {
