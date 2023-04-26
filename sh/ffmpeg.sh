@@ -13,3 +13,5 @@ ffmpeg -i input.mp4 -i palette.png -filter_complex "fps=15,scale=320:-1:flags=la
 # Convert video to GIF, with a custom palette, and a custom palette size:
 ffmpeg -i input.mp4 -i palette.png -filter_complex "fps=15,scale=320:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=sierra2_4a" output.gif
 
+# Convert to QuickTime-compatible HEVC (.h265) video:
+ffmpeg -i input.mp4 -c:v libx265 -vtag hvc1 output.mp4
