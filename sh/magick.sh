@@ -32,3 +32,6 @@ magick convert -size 1x1 xc:none gif:- > transparent.gif
 
 # Generate the smallest possible transparent GIF file:
 magick convert -size 1x1 xc:none -depth 1 gif:- > transparent.gif
+
+# Scale image down and add padding:
+magick convert -background transparent -page 0+0 -gravity center in.png -resize '412x412>' -extent 512x512 out.png
