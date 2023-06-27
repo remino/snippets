@@ -32,3 +32,8 @@ magick convert -size 1x1 xc:none gif:- > transparent.gif
 
 # Generate the smallest possible transparent GIF file:
 magick convert -size 1x1 xc:none -depth 1 gif:- > transparent.gif
+
+# Strip most metadata from any file
+# https://www.imagemagick.org/script/command-line-options.php#strip
+# > -strip strip the image of any profiles, comments or these PNG chunks: bKGD,cHRM,EXIF,gAMA,iCCP,iTXt,sRGB,tEXt,zCCP,zTXt,date.
+magick mogrify -strip file.png
