@@ -19,16 +19,15 @@ const SNIPPETS = [
 	},
 ]
 
-const MAIN_ITERATIONS = 10000 // Number of iterations to run
-const WARMUP_ITERATIONS = 1000 // Number of warmup iterations to run
+const INTERATIONS = 10000 // Number of iterations to run
 
 const tests = {
 	time: {
-		formatter: time => `${time.toFixed(2)}ms / ${MAIN_ITERATIONS}ops`,
+		formatter: time => `${time.toFixed(2)}ms / ${INTERATIONS}ops`,
 		measure(snippet) {
 			const start = performance.now()
 
-			for (let i = 0; i < MAIN_ITERATIONS; i += 1) {
+			for (let i = 0; i < INTERATIONS; i += 1) {
 				snippet()
 			}
 
@@ -37,16 +36,8 @@ const tests = {
 	},
 }
 
-const warmup = snippet => {
-	for (let i = 0; i < WARMUP_ITERATIONS; i += 1) {
-		snippet()
-	}
-}
-
 const runSnippet = (number, snippet) => {
 	try {
-		warmup(snippet)
-
 		return [
 			number,
 			...Object.values(tests).map(({ formatter, measure }) => formatter(measure(snippet))),
