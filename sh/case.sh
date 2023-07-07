@@ -5,7 +5,7 @@ _to_lowercase() {
 }
 
 _to_lowercase_words() {
-	perl -pe 's/(?<![A-Z])([A-Z])/ \1/g;s/[^a-zA-Z0-9]+/ /g;s/(^[^a-zA-Z0-9]|[^a-zA-Z0-9]$)//g;s/.*/lc($&)/e'
+	perl -pe 's/(?<![A-Z0-9])([A-Z0-9])/ \1/g;s/[^a-zA-Z0-9]+/ /g;s/(^[^a-zA-Z0-9]|[^a-zA-Z0-9]$)//g;s/.*/lc($&)/e'
 }
 
 _to_camel_case() {
@@ -29,19 +29,31 @@ _to_uppercase() {
 }
 
 _test() {
-	if [ "$1" = "$2" ]; then
-		echo "OK: $1"
+	input="$1"
+	func="$2"
+	expected="$3"
+	actual="$( echo "$input" | "$func" )"
+
+	if [ "$actual" = "$expected" ]; then
+		echo "OK: $func '$input' => '$actual'"
 	else
-		echo "FAIL: $1 != $2"
+		echo "FAIL: $func '$input' => '$actual' != '$expected'"
 	fi
 }
 
+_test "1234abc" _to_lowercase_words "1234 abc" # XXX
+_test "ThisIsATest" _to_lowercase_words "this is a test" # XXX
+_test "abc-1234" _to_lowercase_words "abc 1234"
+_test " abc-1234 " _to_lowercase_words "abc 1234"
+_test " abc1234 " _to_lowercase_words "abc 1234"
+_test " ABC1234 " _to_lowercase_words "abc 1234" # XXX
+_test " ABC-1234 " _to_lowercase_words "abc 1234"
+
 ORIGINAL=" stringWith  various-separators in_IT! "
-_test "$( echo "$ORIGINAL" | _to_lowercase_words )" "string with various separators in it"
-_test "$( echo "$ORIGINAL" | _to_camel_case )" "stringWithVariousSeparatorsInIt"
-_test "$( echo "$ORIGINAL" | _to_pascal_case )" "StringWithVariousSeparatorsInIt"
-_test "$( echo "$ORIGINAL" | _to_kebab_case )" "string-with-various-separators-in-it"
-_test "$( echo "$ORIGINAL" | _to_snake_case )" "string_with_various_separators_in_it"
-_test "$( echo "$ORIGINAL" | _to_lowercase )" " stringwith  various-separators in_it! "
-_test "$( echo "$ORIGINAL" | _to_uppercase )" " STRINGWITH  VARIOUS-SEPARATORS IN_IT! "
-_test "$( echo "abc-1234" | _to_lowercase_words )" "abc 1234"
+_test "$ORIGINAL" _to_lowercase_words "string with various separators in it"
+_test "$ORIGINAL" _to_camel_case "stringWithVariousSeparatorsInIt"
+_test "$ORIGINAL" _to_pascal_case "StringWithVariousSeparatorsInIt"
+_test "$ORIGINAL" _to_kebab_case "string-with-various-separators-in-it"
+_test "$ORIGINAL" _to_snake_case "string_with_various_separators_in_it"
+_test "$ORIGINAL" _to_lowercase " stringwith  various-separators in_it! "
+_test "$ORIGINAL" _to_uppercase " STRINGWITH  VARIOUS-SEPARATORS IN_IT! "
