@@ -1,0 +1,8 @@
+.debug-crosshair {
+	background: no-repeat center
+		url(data:image/gif;base64,R0lGODlhFAAUAPD/AAAAAP///yH5BAUAAAIALAAAAAAUABQAAAI3lG+hge0SAGCvxlmtpLld3h1f6G0kMj7LqmzsKsXyLLf0Xb+Lq2vYmTABIUJgylg8HZVJ0qpSAAA7);
+}
+
+.debug-grid {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAFklEQVQI12P434AOGRoYhoogQwMmBABNJIKwrYAk5gAAAABJRU5ErkJggg);
+}
