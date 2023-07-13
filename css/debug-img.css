@@ -3,6 +3,14 @@
 		url(data:image/gif;base64,R0lGODlhFAAUAPD/AAAAAP///yH5BAUAAAIALAAAAAAUABQAAAI3lG+hge0SAGCvxlmtpLld3h1f6G0kMj7LqmzsKsXyLLf0Xb+Lq2vYmTABIUJgylg8HZVJ0qpSAAA7);
 }
 
+.debug-crosshair-v {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M9 1v8H1v2h8v8h2v-8h8V9h-8V1Z" style="fill:#000;stroke-width:2;stroke:#fff;paint-order:stroke fill"/></svg>');
+}
+
 .debug-grid {
 	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAFklEQVQI12P434AOGRoYhoogQwMmBABNJIKwrYAk5gAAAABJRU5ErkJggg);
+}
+
+.debug-grid-v {
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><path d="M0 0h9v9H0z" style="fill:#fefefe;fill-opacity:.5"/><path d="M9 0v9H0v1h10V0H9z" style="fill:#000;fill-opacity:.5"/></svg>');
 }
