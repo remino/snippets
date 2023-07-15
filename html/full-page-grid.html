@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Full-Page Grid with Test Pattersn</title>
+		<style>
+			/*
+				Also avaiable here:
+				https://codepen.io/remino/pen/dyQdxGZ
+			*/
+
+			body {
+				background: #000;
+				display: grid;
+				min-height: 100vh;
+				grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+				> div {
+					height: 100%;
+					width: 100%;
+				}
+			}
+
+			.crosshair {
+				background: no-repeat center
+					url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M9 1v8H1v2h8v8h2v-8h8V9h-8V1Z" style="fill:%23000;stroke-width:2;stroke:%23fff;paint-order:stroke fill"/></svg>');
+			}
+
+			.grid {
+				background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><path d="M0 0h9v9H0z" style="fill:%23fff;fill-opacity:.5"/><path d="M9 0v9H0v1h10V0H9z" style="fill:%23000;fill-opacity:.5"/></svg>');
+			}
+		</style>
+	</head>
+	<body>
+		<div class="crosshair"></div>
+		<div class="grid"></div>
+	</body>
+</html>
