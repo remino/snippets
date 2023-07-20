@@ -1,24 +1,25 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
 const REGEX = /(?<letter>\w)/g
 const TEXT = 'Hey'
 
-console.info('REGEX')
-console.info('')
-console.info(REGEX)
-console.info('')
-console.info('TEXT')
-console.info('')
-console.info(TEXT)
-console.info('')
-console.info('MATCHES')
-console.info('')
+const { info } = console
+
+info('REGEX')
+info('')
+info(REGEX)
+info('')
+info('TEXT')
+info('')
+info(TEXT)
+info('')
+info('MATCHES')
+info('')
 
 const showNextMatch = (text, regex) => {
 	const match = regex.exec(text)
 	if (!match) return null
-	console.info(match)
+	info(match)
 	return match
 }
 
