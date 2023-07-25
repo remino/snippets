@@ -44,3 +44,6 @@ magick mogrify -strip file.png
 # Draw a 50% opaque white 9x9 pixel square and a 50% opaque black 1px border on the right and bottom:
 magick convert -size 10x10 xc:none -fill white -draw 'rectangle 0,0 9,9' -channel A -evaluate set 50% -fill black -draw 'rectangle 9,0 10,10' -channel A -evaluate set 50% -draw 'rectangle 0,9 10,10' -channel A -evaluate set 50% output.png
 # data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAFklEQVQI12P434AOGRoYhoogQwMmBABNJIKwrYAk5gAAAABJRU5ErkJggg
+
+# Invert colours
+magick convert input.png -channel RGB -negate output.png
