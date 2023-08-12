@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE page PUBLIC "-//Corpicorp//Page Format 1.0//EN" "page.dtd">
-<?xml-stylesheet href="page.xslt" type="application/xslt+xml"?>
+<!DOCTYPE page SYSTEM "page.dtd">
+<?xml-stylesheet href="page.xslt" type="text/xsl"?>
 <page>
 	<title>
 		Wow! It's XML+DTD+XSLT turned into HTML+CSS!
