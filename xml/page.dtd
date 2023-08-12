@@ -1,0 +1,2 @@
+<!ELEMENT page (title)>
+<!ELEMENT title (#PCDATA)>
