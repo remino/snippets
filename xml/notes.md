@@ -13,5 +13,5 @@ Some notes on XML in browsers
 	  - As in `<?xml-stylesheet href="page.xslt" type="text/xsl"?>`.
 	  - If the official MIME type is set, `application/xslt+xml`, they will not see it.
   - Firefox never downloads the DTD, no matter what.
-  - Safari & Chrome will complain if the transformation results in an empty document.
+  - Safari & Chrome will complain if the transformation results is an empty document.
 	- Firefox will just display the text value of the whole XML document in a `<transformiix:result>` tag, no HTML document.
