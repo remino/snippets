@@ -1,0 +1,3 @@
+# Crop a video capture on a MacBook with notch down to 16:9
+ffmpeg -i capture.mov -filter:v "crop=in_w:in_h-50,crop=ceil(in_w/2)*2:ceil(in_w/16*9/2)*2" output.mp4
+
