@@ -1,0 +1,2 @@
+# Crop MacBook display notch menu bar off image
+magick input.png -gravity north -crop +0+50 output.png
