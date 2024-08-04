@@ -2,15 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="viewport-fit=cover, width=device-width, initial-scale=1.0" />
 		<title>Hello World</title>
 
 		<style>
 			:root {
-				--background-color: #fff;
-				--color: #000;
-				--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-					Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				--color-bg: #fff;
+				--color-fg: #000;
+				--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+					Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 				--line-height: 1.6;
 			}
 
@@ -27,9 +29,9 @@
 
 			body {
 				align-items: center;
-				background-color: var(--background-color);
+				background-color: var(--color-bg);
 				box-sizing: border-box;
-				color: var(--color);
+				color: var(--color-fg);
 				display: flex;
 				flex-flow: column nowrap;
 				justify-content: center;
@@ -39,7 +41,7 @@
 
 			html {
 				font-family: var(--font-family);
-				font-size: 16px;
+				font-size: clamp(16px, 1.5vw, 24px);
 				height: 100%;
 				line-height: var(--line-height);
 				padding: 0;
@@ -52,8 +54,8 @@
 
 			@media (prefers-color-scheme: dark) {
 				:root {
-					--background-color: #000;
-					--color: #fff;
+					--color-bg: #1a1a1a;
+					--color-fg: #fff;
 				}
 			}
 
@@ -71,9 +73,9 @@
 			<h1>Hello World</h1>
 
 			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam qui corrupti quo impedit
-				libero. Ipsum voluptatum enim ex! Odit ad a, optio reprehenderit laborum officia eius
-				voluptates sed iusto blanditiis!
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam qui
+				corrupti quo impedit libero. Ipsum voluptatum enim ex! Odit ad a, optio
+				reprehenderit laborum officia eius voluptates sed iusto blanditiis!
 			</p>
 		</main>
 
@@ -101,7 +103,7 @@
 				}
 
 				const main = () => {
-					document.body.addEventListener('click', fullscreenBody)
+					document.documentElement.addEventListener('click', fullscreenBody)
 				}
 
 				if (document.readyState === 'interactive') {
