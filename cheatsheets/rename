@@ -1,0 +1,8 @@
+# To lowercase all files and folders in current directory:
+rename 'y/A-Z/a-z/' *
+
+# To replace 'sometext' with 'replacedby' in all files in current directory:
+rename 's/sometext/replacedby/' *
+
+# Number files (file-01, file-02, ...) in current directory:
+rename -N ...01 -X -e '$_ = "file-$N"' *
