@@ -1,2 +1,5 @@
 # Crop MacBook display notch menu bar off image
 magick input.png -gravity north -crop +0+50 output.png
+
+# Convert SVG with transparent background (order of arguments is important)
+magick -background none transparent.svg -density 300 transparent.png
