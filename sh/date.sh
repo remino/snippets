@@ -25,3 +25,12 @@ _iso_date_to_sec() {
 _sec_to_date_iso() {
 	{ date -j >/dev/null 2>&1 && date -r "$1" +'%Y-%m-%dT%H:%M:%S%z'; } || date --date=@"$1" +'%Y-%m-%dT%H:%M:%S%z'
 }
+
+# ---
+
+# Get week's Monday
+
+week_monday() {
+	# Try with GNU date first (Linux), then BSD date (macOS)
+	date -d "last Monday" +%Y-%m-%d 2>/dev/null || date -v -Mon +%Y-%m-%d
+}
