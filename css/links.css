@@ -1,0 +1,21 @@
+a {
+	color: #0000EE;
+	text-decoration: none;
+
+	&:visited {
+		color: #551A8B;
+	}
+
+	&:hover {
+		color: #EE0000;
+		text-decoration: underline;
+	}
+
+	&:focus {
+		outline: 1px dotted #333;
+	}
+
+	&:active {
+		color: #FF0000;
+	}
+}
