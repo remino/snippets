@@ -1,4 +1,4 @@
 const clog = (val, ...args) => {
-	console.log(var, ...args)
+	console.log(val, ...args)
 	return val
 }
