@@ -3,3 +3,6 @@ magick input.png -gravity north -crop +0+50 output.png
 
 # Convert SVG with transparent background (order of arguments is important)
 magick -background none transparent.svg -density 300 transparent.png
+
+# Scale up image with no antialiasing for pixel-crisp images
+magick input.png -filter point -resize 400% output.png
