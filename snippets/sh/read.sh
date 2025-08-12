@@ -21,10 +21,16 @@ read_from_stdin_or_file() {
 }
 
 read_interactive() {
-	while read -r line
-	do
+	while read -r line; do
 		echo "Input something:"
-		read -r input < /dev/tty
+		read -r input </dev/tty
 		echo "$input"
+
+		if [[ "$input" =~ ^[yY] ]]; then
+			echo "You said yes!"
+		else
+			echo "You did not say yes."
+			break
+		fi
 	done
 }
