@@ -6,3 +6,9 @@ magick -background none transparent.svg -density 300 transparent.png
 
 # Scale up image with no antialiasing for pixel-crisp images
 magick input.png -filter point -resize 400% output.png
+
+# Resize and crop image as Twitter/X share image
+magick input.png -gravity center -resize 2048x1024^ -crop 2048x1024+0+0 output.jpg
+
+# Compare two images and output diff
+magick compare -compose src a.png b.png diff.png
