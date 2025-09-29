@@ -1,0 +1,2 @@
+# Get latest commit ID on current branch
+git rev-parse HEAD
