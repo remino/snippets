@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+self_main() {
+	SELF_PATH="$0"
+	SELF_DIR="$(dirname "$SELF_PATH")"
+	SELF_NAME="$(basename "$SELF_PATH")"
+
+	echo "SELF_PATH: $SELF_PATH"
+	echo "SELF_DIR: $SELF_DIR"
+	echo "SELF_NAME: $SELF_NAME"
+}
+
+self_main
