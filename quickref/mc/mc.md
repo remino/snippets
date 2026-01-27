@@ -78,3 +78,36 @@ Use mc primarily for:
 - destructive actions you don’t want to mistype in shell
 
 Use the shell for everything else.
+
+## Filtering & finding files (mc)
+
+---
+
+### Panel filter (actual filtering)
+
+- Ctrl+I — panel filter (glob-based)
+    - Examples:
+        - `*.js`
+        - `*.{jpg,png,webp}`
+        - `*log*`
+- Clear filter: Ctrl+I → empty → Enter
+- Scope: current pane only
+- Notes:
+    - Uses shell globs, **not regex**
+    - Temporary (resets when you leave the directory)
+
+---
+
+### Quick search (navigation, not filtering)
+
+- Alt+S — incremental search
+    - Jumps cursor to matching filenames
+    - Does **not** hide other files
+
+---
+
+### Mental model
+
+- Ctrl+I → “hide files I don’t care about right now”
+- Alt+S → “jump to the file I want”
+- Shell → “compute / search properly”
