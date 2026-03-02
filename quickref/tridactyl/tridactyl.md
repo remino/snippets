@@ -7,21 +7,24 @@
 - **Command** – `:`
 - **Ignore** – Tridactyl disabled on page
 
-Exit Insert / Command:
+## Exit Insert / Command:
 
 - `Esc`
 - `Ctrl + [`
 
-## Ignore Mode (No Shift+Insert)
+## Ignore the next keypress only (send it to the page):
 
-Toggle ignore for the current page:
+- `Ctrl + v` (normal mode “literal next”)
 
-- `Alt + Shift + I`
+## Toggle Ignore mode for the current page:
 
-From command line:
+- `Shift + Escape`
+- `Alt + Shift + i`
+
+## Command-line equivalents:
 
 - `:mode ignore`
-- `:mode normal` (to return)
+- `:mode normal`
 
 ## Movement
 
