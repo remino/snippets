@@ -1,0 +1,80 @@
+# Tridactyl for Firefox: Quick Reference
+
+## Modes
+
+- **Normal** – default browsing mode
+- **Insert** – typing in inputs
+- **Command** – `:`
+- **Ignore** – Tridactyl disabled on page
+
+Exit Insert / Command:
+
+- `Esc`
+- `Ctrl + [`
+
+## Ignore Mode (No Shift+Insert)
+
+Toggle ignore for the current page:
+
+- `Alt + Shift + I`
+
+From command line:
+
+- `:mode ignore`
+- `:mode normal` (to return)
+
+## Movement
+
+- `j` / `k` – scroll down / up
+- `h` / `l` – left / right
+- `gg` – top
+- `G` – bottom
+- `d` / `u` – half page down / up
+
+History:
+
+- `H` – back
+- `L` – forward
+
+## Links
+
+- `f` – follow link
+- `F` – follow link in new tab
+
+## Tabs
+
+- `gt` – next tab
+- `gT` – previous tab
+- `b` – buffer list
+- `x` – close tab
+- `u` – reopen closed tab
+
+Open:
+
+- `o` – open
+- `O` – open in new tab
+
+## Search
+
+- `/` – search
+- `n` / `N` – next / previous
+
+## Clipboard
+
+- `yy` – copy URL
+- `p` – open from clipboard
+- `P` – open in new tab
+
+## Command Line
+
+Open:
+
+- `:`
+
+Useful:
+
+- `:help`
+- `:set`
+- `:bind`
+- `:source`
+- `:reload`
